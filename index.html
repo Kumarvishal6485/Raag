@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raag</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .left {
+            background-color: black;
+            color: white;
+            width: 120px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        hr {
+            top: 5px;
+            left: 5px;
+            width: 80px;
+            transform: rotate(270deg);
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .main {
+            display: flex;
+            position: relative;
+        }
+
+        .leftnav {
+            background-color: black;
+            color: white;
+            position: fixed;
+            height: 100vh;
+            width: 120px;
+            box-sizing: border-box;
+        }
+
+        .leftt {
+            margin-top: 50px;
+            margin-left: 25px;
+            position: relative;
+        }
+
+        header {
+            height: 60px;
+            width: 90vw;
+            background-color: black;
+            color: white;
+        }
+
+        .right {
+            position: relative;
+            height: 40px;
+            width: 100px;
+        }
+
+        .navbar {
+            margin-top: 14px;
+            float: right;
+        }
+
+        .rightt {
+            display: inline;
+            margin-top: 10px;
+            margin-right: 30px;
+        }
+
+        .button {
+            background-color: white;
+            height: 30px;
+            width: 60px;
+            border-radius: 12px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        #sbtn{
+            color: black;
+            text-decoration: none;
+            background-color: white;
+        }
+        .favourites,
+        .playlist,
+        .recent,
+        .stream {
+            position: relative;
+            width: 90vw;
+            height: 100vh;
+        }
+
+        .favourites {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-around;
+            /*background-color: red;*/
+        }
+
+        .playlist {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-around;
+            /*background-color: blue;*/
+        }
+
+        .recent {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-around;
+            /*background-color: aqua;*/
+        }
+
+        .stream {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-around;
+            /*background-color: black;*/
+        }
+
+        .favsongs,
+        .playlistsongs,
+        .recentsongs,
+        .streaming {
+            width: 280px;
+            height: 243px;
+            border: 2px solid black;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        footer {
+            bottom: 0px;
+            background-color: red;
+            position: absolute;
+        }
+
+        #search {
+            height: 30px;
+            width: 200px;
+            border-radius: 10px;
+        }
+
+        #search::placeholder {
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 3px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="left">
+            <nav class="leftnav">
+                <li class="leftt"><a href="#nav" id="home" onclick="home()">Home</a></li><br><br><br>
+                <hr id="hr">
+                <li class="leftt"><a id="fav" href="#favourites" onclick="favourite()">Favourites</a></li><br><br><br>
+                <hr id="hr1">
+                <li class="leftt"><a id="play" href="#playlist" onclick="playlist()">Playlist</a></li><br><br><br>
+                <hr id="hr2">
+                <li class="leftt"><a id="rec" href="#recent" onclick="recent()">Recent</a></li><br><br><br>
+                <hr id="hr3">
+                <li class="leftt"><a id="str" href="#stream" onclick="stream()">Stream</a></li>
+            </nav>
+        </div>
+        <div class="right">
+            <header>
+                <nav class="navbar" id="nav">
+                    <li class="rightt"><input id="search" type="search" placeholder="Search" ></li>
+
+                    <li class="rightt" value="login">Login</li>
+                    <li class="rightt"><button class="button" id="signup" value="signup"><a id="sbtn"href="signup_page.html" target="_parent">Signup</a></button></li>
+
+                </nav>
+            </header>
+            <div class="favourites" id="favourites">
+                <div class="favsongs"></div>
+                <div class="favsongs"></div>
+                <div class="favsongs"></div>
+                <div class="favsongs"></div>
+                <div class="favsongs"></div>
+                <div class="favsongs"></div>
+                <div class="favsongs"></div>
+                <div class="favsongs"></div>
+            </div>
+            <div class="playlist" id="playlist">
+                <div class="playlistsongs"></div>
+                <div class="playlistsongs"></div>
+                <div class="playlistsongs"></div>
+                <div class="playlistsongs"></div>
+                <div class="playlistsongs"></div>
+                <div class="playlistsongs"></div>
+                <div class="playlistsongs"></div>
+                <div class="playlistsongs"></div>
+            </div>
+            <div class="recent" id="recent">
+                <div class="recentsongs"></div>
+                <div class="recentsongs"></div>
+                <div class="recentsongs"></div>
+                <div class="recentsongs"></div>
+                <div class="recentsongs"></div>
+                <div class="recentsongs"></div>
+                <div class="recentsongs"></div>
+                <div class="recentsongs"></div>
+            </div>
+            <div class="stream" id="stream">
+                <div class="streaming"></div>
+                <div class="streaming"></div>
+                <div class="streaming"></div>
+                <div class="streaming"></div>
+                <div class="streaming"></div>
+                <div class="streaming"></div>
+                <div class="streaming"></div>
+                <div class="streaming"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function home() {
+            document.getElementById("home").style.color = "red";
+            document.getElementById("fav").style.color = "white";
+            document.getElementById("play").style.color = "white";
+            document.getElementById("rec").style.color = "white";
+            document.getElementById("str").style.color = "white";
+            document.getElementById("hr").style.color = "white";
+            document.getElementById("hr1").style.color = "white";
+            document.getElementById("hr2").style.color = "white";
+            document.getElementById("hr3").style.color = "white";
+        }
+        function favourite() {
+            document.getElementById("home").style.color = "red";
+            document.getElementById("fav").style.color = "red";
+            document.getElementById("play").style.color = "white";
+            document.getElementById("rec").style.color = "white";
+            document.getElementById("str").style.color = "white";
+            document.getElementById("hr").style.color = "red";
+            document.getElementById("hr1").style.color = "white";
+            document.getElementById("hr2").style.color = "white";
+            document.getElementById("hr3").style.color = "white";
+        }
+
+        function playlist() {
+            document.getElementById("home").style.color = "red";
+            document.getElementById("fav").style.color = "red";
+            document.getElementById("play").style.color = "red";
+            document.getElementById("rec").style.color = "white";
+            document.getElementById("str").style.color = "white";
+            document.getElementById("hr").style.color = "red";
+            document.getElementById("hr1").style.color = "red";
+            document.getElementById("hr2").style.color = "white";
+            document.getElementById("hr3").style.color = "white";
+        }
+
+
+        function recent() {
+            document.getElementById("home").style.color = "red";
+            document.getElementById("fav").style.color = "red";
+            document.getElementById("play").style.color = "red";
+            document.getElementById("rec").style.color = "red";
+            document.getElementById("str").style.color = "white";
+            document.getElementById("hr").style.color = "red";
+            document.getElementById("hr1").style.color = "red";
+            document.getElementById("hr2").style.color = "red";
+            document.getElementById("hr3").style.color = "white";
+        }
+
+        function stream() {
+            document.getElementById("home").style.color = "red";
+            document.getElementById("fav").style.color = "red";
+            document.getElementById("play").style.color = "red";
+            document.getElementById("rec").style.color = "red";
+            document.getElementById("str").style.color = "red";
+            document.getElementById("hr").style.color = "red";
+            document.getElementById("hr1").style.color = "red";
+            document.getElementById("hr2").style.color = "red";
+            document.getElementById("hr3").style.color = "red";
+        }
+
+
+    </script>
+</body>
+
+</html>
